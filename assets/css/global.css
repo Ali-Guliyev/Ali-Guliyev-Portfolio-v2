@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background: linear-gradient(to right, black, rgb(4, 19, 4), rgb(9, 69, 9), rgb(16, 168, 16));
+  color: rgb(15, 169, 15);
+}
+
+section,
+header {
+  min-height: 100vh;
+}
+
+section {
+  padding: 30px;
+}
+section .title {
+  font-size: 25px;
+  text-align: center;
+}
+
+@-webkit-keyframes fade-out {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@-webkit-keyframes fade-in-and-move {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes fade-in-and-move {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes slide-in {
+  from {
+    transform: translateX(60vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(60vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0vw);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=global.css.map */
