@@ -76,7 +76,7 @@ nav {
       border-radius: 20px;
       padding: 14px 20px;
       border: 2px solid #097d09;
-      margin-top: 10px;
+      margin-top: 15px;
       opacity: 0;
 
       &:hover {

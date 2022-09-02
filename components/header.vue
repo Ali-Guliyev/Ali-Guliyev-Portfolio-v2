@@ -5,6 +5,8 @@ import {
   randomArrItem,
   randomFloatNumber,
 } from "../composables/utilities";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 onMounted(() => {
   // * Header Terminal Hacking Animation
@@ -20,32 +22,34 @@ onMounted(() => {
     // Generate DIGITS
     for (let j = 0; j < digitAmount; j++) {
       rowEl.innerHTML += `<span>${randomArrItem([0, 1])}</span>`;
+      rowEl.style.display = "flex";
+      rowEl.style.flexDirection = "column";
     }
 
     terminalTypingArea.appendChild(rowEl);
   }
 
-  // // * Terminal hacking animation
-  // const terminalRows = document.querySelectorAll(".terminal .row");
+  // * Terminal hacking animation
+  const terminalRows = document.querySelectorAll(".terminal .row");
 
-  // let counterArr = [];
-  // let addingTimeArr = [];
+  let counterArr = [];
+  let addingTimeArr = [];
 
-  // for (let i = 0; i < rowsAmount; i++) {
-  //   counterArr.push(randomFloatNumber(0, 5));
-  // }
+  for (let i = 0; i < rowsAmount; i++) {
+    counterArr.push(randomFloatNumber(0, 5));
+  }
 
-  // terminalRows.forEach((row, rowIndex) => {
-  //   row.childNodes.forEach((digit) => {
-  //     counterArr[rowIndex] += 0.1;
+  terminalRows.forEach((row, rowIndex) => {
+    row.childNodes.forEach((digit) => {
+      counterArr[rowIndex] += 0.1;
 
-  //     digit.style.animation = `fade-out 1s ease-in-out ${counterArr[rowIndex]}s infinite`;
+      digit.style.animation = `fade-out 1s ease-in-out ${counterArr[rowIndex]}s infinite`;
 
-  //     setTimeout(() => {
-  //       digit.style.opacity = "1";
-  //     }, counterArr[rowIndex] * 1000);
-  //   });
-  // });
+      setTimeout(() => {
+        digit.style.opacity = "1";
+      }, counterArr[rowIndex] * 1000);
+    });
+  });
 
   // * Header typing animation
   const skillsWords = [
@@ -83,6 +87,19 @@ onMounted(() => {
       }
     });
   }
+
+  // * GSAP Animations
+  const contLeft = document.querySelector(".container .left");
+  const contRightTerminal = document.querySelector(".container .right");
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(contLeft, {
+    duration: 1,
+    x: "-50px",
+    opacity: 0,
+    scrollTrigger: contLeft,
+  });
 });
 </script>
 
@@ -118,17 +135,19 @@ onMounted(() => {
 header {
   position: relative;
   @include flex();
+  padding: 0 120px;
 
   .container {
     z-index: 1;
-    width: 80%;
+    max-width: 1500px;
+    width: 100%;
     margin-top: -50px;
     @include flex(space-between);
 
     .right.terminal {
+      max-width: 900px;
       width: 100%;
-      max-width: 650px;
-      height: 400px;
+      max-height: 500px;
       border: 1px solid black;
       background-color: rgba(19, 19, 19, 0.75);
       border-radius: 25px;
@@ -140,9 +159,6 @@ header {
         @include flex(space-evenly, start);
 
         .row {
-          display: flex;
-          flex-direction: column;
-
           span {
             opacity: 0;
           }
@@ -199,6 +215,22 @@ header {
           animation: fade-out 0.3s ease-in-out infinite alternate;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  header .container {
+    flex-direction: column;
+    text-align: center;
+
+    .left {
+      margin-bottom: 30px;
+    }
+
+    .right.terminal {
+      min-width: 300px;
+      height: 400px;
     }
   }
 }

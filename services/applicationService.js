@@ -1,0 +1,18 @@
+import axios from "axios";
+
+const apiClient = axios.create({
+  baseURL:
+    "https://my-json-server.typicode.com/Ali-Guliyev/Ali-Guliyev-Portfolio",
+  //
+  withCredentials: false,
+  header: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
+
+export default {
+  getSkills() {
+    return apiClient.get("/projects");
+  },
+};
