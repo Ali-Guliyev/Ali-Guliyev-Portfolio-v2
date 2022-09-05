@@ -1,3 +1,33 @@
+<script setup>
+import applicationService from "../services/applicationService";
+
+const aboutText = ref("");
+const skills = ref([]);
+
+applicationService.getAboutText().then((res) => {
+  aboutText.value = res.data.abouttext;
+  console.log(aboutText.value);
+});
+
+applicationService.getSkills().then((res) => {
+  skills.value = res.data;
+});
+
+const randomize = () => {
+  document.querySelectorAll(".ko-progress-circle").forEach((el, i) => {
+    el.setAttribute("data-progress", 45);
+  });
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 1000) {
+      setTimeout(randomize, 0);
+    }
+  });
+});
+</script>
+
 <template>
   <section id="about">
     <h1 class="title">About me</h1>
@@ -7,25 +37,31 @@
         <div class="left">
           <h1>Hi there!</h1>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore,
-            illo necessitatibus voluptatibus quam doloremque, culpa deleniti
-            incidunt fuga distinctio architecto placeat? Saepe, qui vel earum
-            eum necessitatibus illo officiis quia laudantium. Commodi
-            dignissimos necessitatibus eum error, veniam perspiciatis sequi
-            dolore iure eaque laudantium. Nam error expedita ut ullam atque
-            repellendus consequatur quod, eligendi excepturi ducimus voluptates
-            quibusdam facilis corrupti accusamus modi veniam natus, unde eaque
-            sequi aspernatur nobis id blanditiis ipsa nihil? Iste necessitatibus
-            repellat nihil ad minima! Ut sequi ab aperiam error numquam vitae
-            minus odit, doloribus totam sit consequatur adipisci cum voluptatum,
-            optio id eaque sunt? Vitae, dolores.
+            {{ aboutText }}
           </p>
         </div>
         <div class="right">
           <img src="../assets/img/laptop.jpg" alt="" />
         </div>
       </div>
-      <h1>hello world</h1>
+
+      <div
+        v-for="skill in skills"
+        :key="skill.id"
+        class="ko-progress-circle"
+        data-progress="0"
+      >
+        <div class="ko-circle">
+          <div class="full ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+          </div>
+          <div class="ko-progress-circle__slice">
+            <div class="ko-progress-circle__fill"></div>
+            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
+          </div>
+        </div>
+        <div class="ko-progress-circle__overlay"></div>
+      </div>
     </div>
   </section>
 </template>
@@ -70,6 +106,73 @@
         }
       }
     }
+  }
+}
+
+// Skills
+$circle-size: 120px;
+$circle-background: #d9d9d9;
+$circle-color: #1291d4;
+$inset-size: 105px;
+$inset-color: #fbfbfb;
+$transition-length: 1s;
+
+.ko-progress-circle {
+  position: relative;
+  margin: 20px auto;
+  width: $circle-size;
+  height: $circle-size;
+
+  background-color: $circle-background;
+  border-radius: 50%;
+  .ko-progress-circle__slice,
+  .ko-progress-circle__fill {
+    width: $circle-size;
+    height: $circle-size;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    transition: transform $transition-length;
+    border-radius: 50%;
+  }
+  .ko-progress-circle__slice {
+    clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
+    .ko-progress-circle__fill {
+      clip: rect(0px, $circle-size/2, $circle-size, 0px);
+      background-color: $circle-color;
+    }
+  }
+  .ko-progress-circle__overlay {
+    width: $inset-size;
+    height: $inset-size;
+    position: absolute;
+    margin-left: ($circle-size - $inset-size)/2;
+    margin-top: ($circle-size - $inset-size)/2;
+
+    background-color: $inset-color;
+    border-radius: 50%;
+  }
+
+  $i: 0;
+  $increment: 180deg / 100;
+  @while $i <= 100 {
+    &[data-progress="#{$i}"] {
+      .ko-progress-circle__slice.full,
+      .ko-progress-circle__fill {
+        transform: rotate($increment * $i);
+      }
+      $i: $i + 1;
+    }
+  }
+
+  &::after {
+    content: attr(data-progress) "%";
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-family: "Courier New";
   }
 }
 

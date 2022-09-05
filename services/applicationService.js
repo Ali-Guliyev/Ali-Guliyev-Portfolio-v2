@@ -13,6 +13,12 @@ const apiClient = axios.create({
 
 export default {
   getSkills() {
+    return apiClient.get("/skills");
+  },
+  getProjects() {
     return apiClient.get("/projects");
+  },
+  getAboutText() {
+    return apiClient.get("/text");
   },
 };
