@@ -5,8 +5,7 @@ const aboutText = ref("");
 const skills = ref([]);
 
 applicationService.getAboutText().then((res) => {
-  aboutText.value = res.data.abouttext;
-  console.log(aboutText.value);
+  aboutText.value = res.data.text;
 });
 
 applicationService.getSkills().then((res) => {
@@ -15,13 +14,13 @@ applicationService.getSkills().then((res) => {
 
 const randomize = () => {
   document.querySelectorAll(".ko-progress-circle").forEach((el, i) => {
-    el.setAttribute("data-progress", 45);
+    el.setAttribute("data-progress", skills.value[i].percentage);
   });
 };
 
 onMounted(() => {
   window.addEventListener("scroll", function () {
-    if (window.pageYOffset > 1000) {
+    if (window.pageYOffset > 900) {
       setTimeout(randomize, 0);
     }
   });
@@ -36,31 +35,31 @@ onMounted(() => {
       <div class="container">
         <div class="left">
           <h1>Hi there!</h1>
-          <p>
-            {{ aboutText }}
-          </p>
+          <p>{{ aboutText }}</p>
         </div>
         <div class="right">
-          <img src="../assets/img/laptop.jpg" alt="" />
+          <img src="../assets/img/aboutme.jpg" alt="" />
         </div>
       </div>
 
-      <div
-        v-for="skill in skills"
-        :key="skill.id"
-        class="ko-progress-circle"
-        data-progress="0"
-      >
-        <div class="ko-circle">
-          <div class="full ko-progress-circle__slice">
-            <div class="ko-progress-circle__fill"></div>
+      <div class="skillContainer">
+        <div class="skill" v-for="skill in skills" :key="skill.id">
+          <div class="ko-progress-circle" data-progress="0">
+            <div class="ko-circle">
+              <div class="full ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+              </div>
+              <div class="ko-progress-circle__slice">
+                <div class="ko-progress-circle__fill"></div>
+                <div
+                  class="ko-progress-circle__fill ko-progress-circle__bar"
+                ></div>
+              </div>
+            </div>
+            <div class="ko-progress-circle__overlay"></div>
           </div>
-          <div class="ko-progress-circle__slice">
-            <div class="ko-progress-circle__fill"></div>
-            <div class="ko-progress-circle__fill ko-progress-circle__bar"></div>
-          </div>
+          <h3 class="language">{{ skill.name }}</h3>
         </div>
-        <div class="ko-progress-circle__overlay"></div>
       </div>
     </div>
   </section>
@@ -102,7 +101,10 @@ onMounted(() => {
           width: 100%;
           width: 400px;
           max-width: 100%;
+          height: 400px;
+          object-fit: cover;
           border-radius: 20px;
+          box-shadow: 0px 5px 10px #00ff00;
         }
       }
     }
@@ -110,69 +112,88 @@ onMounted(() => {
 }
 
 // Skills
+
 $circle-size: 120px;
-$circle-background: #d9d9d9;
-$circle-color: #1291d4;
+$circle-background: #084008;
+$circle-color: #0fa00f;
 $inset-size: 105px;
-$inset-color: #fbfbfb;
+$inset-color: #051f05;
 $transition-length: 1s;
 
-.ko-progress-circle {
-  position: relative;
-  margin: 20px auto;
-  width: $circle-size;
-  height: $circle-size;
+.skillContainer {
+  @include flex(center, space-between);
+  flex-wrap: wrap;
+  gap: 35px;
+  max-width: 1200px;
+  margin-top: 20px;
 
-  background-color: $circle-background;
-  border-radius: 50%;
-  .ko-progress-circle__slice,
-  .ko-progress-circle__fill {
-    width: $circle-size;
-    height: $circle-size;
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-    transition: transform $transition-length;
-    border-radius: 50%;
-  }
-  .ko-progress-circle__slice {
-    clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
-    .ko-progress-circle__fill {
-      clip: rect(0px, $circle-size/2, $circle-size, 0px);
-      background-color: $circle-color;
-    }
-  }
-  .ko-progress-circle__overlay {
-    width: $inset-size;
-    height: $inset-size;
-    position: absolute;
-    margin-left: ($circle-size - $inset-size)/2;
-    margin-top: ($circle-size - $inset-size)/2;
+  .skill {
+    text-align: center;
 
-    background-color: $inset-color;
-    border-radius: 50%;
-  }
+    .ko-progress-circle {
+      position: relative;
+      margin: 20px auto;
+      width: $circle-size;
+      height: $circle-size;
+      transition: all 0.1s ease;
 
-  $i: 0;
-  $increment: 180deg / 100;
-  @while $i <= 100 {
-    &[data-progress="#{$i}"] {
-      .ko-progress-circle__slice.full,
-      .ko-progress-circle__fill {
-        transform: rotate($increment * $i);
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px #0fa00f;
       }
-      $i: $i + 1;
-    }
-  }
 
-  &::after {
-    content: attr(data-progress) "%";
-    transition: all 0.3s ease;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 25px;
-    font-family: "Courier New";
+      background-color: $circle-background;
+      border-radius: 50%;
+      .ko-progress-circle__slice,
+      .ko-progress-circle__fill {
+        width: $circle-size;
+        height: $circle-size;
+        position: absolute;
+        -webkit-backface-visibility: hidden;
+        transition: transform $transition-length;
+        border-radius: 50%;
+      }
+      .ko-progress-circle__slice {
+        clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
+        .ko-progress-circle__fill {
+          clip: rect(0px, $circle-size/2, $circle-size, 0px);
+          background-color: $circle-color;
+        }
+      }
+      .ko-progress-circle__overlay {
+        width: $inset-size;
+        height: $inset-size;
+        position: absolute;
+        margin-left: ($circle-size - $inset-size)/2;
+        margin-top: ($circle-size - $inset-size)/2;
+
+        background-color: $inset-color;
+        border-radius: 50%;
+      }
+
+      $i: 0;
+      $increment: 180deg / 100;
+      @while $i <= 100 {
+        &[data-progress="#{$i}"] {
+          .ko-progress-circle__slice.full,
+          .ko-progress-circle__fill {
+            transform: rotate($increment * $i);
+          }
+          $i: $i + 1;
+        }
+      }
+
+      &::after {
+        content: attr(data-progress) "%";
+        transition: all 0.3s ease;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+        font-family: "Courier New";
+      }
+    }
   }
 }
 

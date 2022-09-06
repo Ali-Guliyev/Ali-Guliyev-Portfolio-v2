@@ -83,6 +83,7 @@ nav {
         background-color: #15e815;
         color: #073c07;
         font-weight: 700;
+        box-shadow: 0px 0px 20px #0fa00f;
       }
     }
   }

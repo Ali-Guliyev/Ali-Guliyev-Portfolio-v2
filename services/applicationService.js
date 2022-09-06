@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL:
-    "https://my-json-server.typicode.com/Ali-Guliyev/Ali-Guliyev-Portfolio",
+    "https://my-json-server.typicode.com/Ali-Guliyev/Ali-Guliyev-Portfolio-v2",
   //
   withCredentials: false,
   header: {
@@ -19,6 +19,6 @@ export default {
     return apiClient.get("/projects");
   },
   getAboutText() {
-    return apiClient.get("/text");
+    return apiClient.get("/aboutText");
   },
 };
