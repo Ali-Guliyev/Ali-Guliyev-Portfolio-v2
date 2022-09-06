@@ -1,0 +1,111 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Post App",
+      "website": "https://postapp-v1.web.app",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/133938436-4754b669-84d6-4d4f-ac7c-003028a9f221.png",
+      "code": "https://github.com/Ali-Guliyev/Post-App"
+    },
+    {
+      "id": 2,
+      "name": "Weather App",
+      "website": "https://weatherappbyali.onrender.com",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/133939554-fe805cf1-8b89-47e9-a2af-d8427f3f99a5.png",
+      "code": "https://github.com/Ali-Guliyev/weather-app"
+    },
+    {
+      "id": 3,
+      "name": "Chatroom",
+      "website": "https://chatroom-57.web.app",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/133939529-2ff094f2-aab2-4c16-9f00-9e8bf3915d66.png",
+      "code": "https://github.com/Ali-Guliyev/live-chatroom-vue-firebase"
+    },
+    {
+      "id": 4,
+      "name": "Muso Ninjas",
+      "website": "https://muso-ninjas-v1.web.app/",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/133939723-e76adbaa-3596-4c9c-a8fe-474477a0ba3b.png",
+      "code": "https://github.com/Ali-Guliyev/Muso-Ninjas-Vue-Firebase"
+    },
+    {
+      "id": 5,
+      "name": "Hangman",
+      "website": "https://hangman.onrender.com",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/133939849-d552735c-ec17-4a8d-8df6-e2df7857e961.png",
+      "code": "https://github.com/Ali-Guliyev/Hangman"
+    },
+    {
+      "id": 6,
+      "name": "Github Profiles App",
+      "website": "https://github-profiles-app.netlify.app",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/133991190-10e877cd-981f-4de8-b3c1-015367b3a51c.png",
+      "code": "https://github.com/Ali-Guliyev/github-profiles-app"
+    },
+    {
+      "id": 7,
+      "name": "Click Button Sweeper",
+      "website": "https://clickbuttonsweeper.netlify.app",
+      "photoURL": "https://user-images.githubusercontent.com/54935778/134689777-3ec510c1-b822-4fa3-9cc1-9ea2c78a4264.png",
+      "code": "https://github.com/Ali-Guliyev/ClickButtonSweeperGame"
+    }
+  ],
+  "aboutText": "My name is Ali Guliyev and I am almost 16 years old. I am from Baku, Azerbaijan and I live in Istanbul, Turkey. I am an experienced webdeveloper 👨‍💻 and currently learning backend development with NestJSand mathemathics. One of my hobbies is to play basketball 🏀 everyday. I love to watch basketball games, especially NBA, and myfavorite team is Golden State Warriors",
+  "skills": [
+    {
+      "id": 1,
+      "name": "HTML",
+      "percentage": "100"
+    },
+    {
+      "id": 2,
+      "name": "CSS",
+      "percentage": "100"
+    },
+    {
+      "id": 3,
+      "name": "Python",
+      "percentage": "100"
+    },
+    {
+      "id": 4,
+      "name": "Figma",
+      "percentage": "100"
+    },
+    {
+      "id": 5,
+      "name": "JavaScript",
+      "percentage": "100"
+    },
+    {
+      "id": 6,
+      "name": "Vue.js",
+      "percentage": "95"
+    },
+    {
+      "id": 7,
+      "name": "SASS",
+      "percentage": "95"
+    },
+    {
+      "id": 8,
+      "name": "TailwindCss",
+      "percentage": "90"
+    },
+    {
+      "id": 9,
+      "name": "C#",
+      "percentage": "85"
+    },
+    {
+      "id": 10,
+      "name": "C++",
+      "percentage": "50"
+    },
+    {
+      "id": 11,
+      "name": "BootStrap",
+      "percentage": "30"
+    }
+  ]
+}
