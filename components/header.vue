@@ -13,59 +13,46 @@ onMounted(() => {
   const terminalTypingArea = document.querySelector(".terminal .typing-area");
   const digitAmount = 30;
   const rowsAmount = 20;
-
   // Generate ROWS
   for (let i = 0; i < rowsAmount; i++) {
     let rowEl = document.createElement("div");
     rowEl.classList.add("row");
-
     // Generate DIGITS
     for (let j = 0; j < digitAmount; j++) {
       rowEl.innerHTML += `<span>${randomArrItem([0, 1])}</span>`;
       rowEl.style.display = "flex";
       rowEl.style.flexDirection = "column";
     }
-
     terminalTypingArea.appendChild(rowEl);
   }
-
   // * Terminal hacking animation
   const terminalRows = document.querySelectorAll(".terminal .row");
-
   let counterArr = [];
   let addingTimeArr = [];
-
   for (let i = 0; i < rowsAmount; i++) {
     counterArr.push(randomFloatNumber(0, 5));
   }
-
   terminalRows.forEach((row, rowIndex) => {
     row.childNodes.forEach((digit) => {
       counterArr[rowIndex] += 0.1;
-
       digit.style.animation = `fade-out 1s ease-in-out ${counterArr[rowIndex]}s infinite`;
-
       setTimeout(() => {
         digit.style.opacity = "1";
       }, counterArr[rowIndex] * 1000);
     });
   });
-
-  // * Header typing animation
+  // // * Header typing animation
   const skillsWords = [
     "creating websites",
     "making games",
     "solving hard algorithmic questions.",
   ];
-
   const typingArea = document.querySelector("header .typingArea");
   const cursor = document.querySelector("header .cursor");
   const addingTime = 100;
   const typedWordsAmount = 1000;
   let typingTime = addingTime;
-
   typingTime += 1000;
-
   for (let j = 0; j < typedWordsAmount; j++) {
     skillsWords.forEach((word, index) => {
       // Writing letters
@@ -75,9 +62,7 @@ onMounted(() => {
         }, typingTime);
         typingTime += addingTime;
       }
-
       typingTime += 2000;
-
       // Removing letters
       for (let i = word.length; i > 0; i--) {
         setTimeout(() => {
@@ -87,13 +72,10 @@ onMounted(() => {
       }
     });
   }
-
   // * GSAP Animations
   const contLeft = document.querySelector(".container .left");
   const contRightTerminal = document.querySelector(".container .right");
-
   gsap.registerPlugin(ScrollTrigger);
-
   gsap.from(contLeft, {
     duration: 1,
     x: "-50px",
