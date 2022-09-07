@@ -1,19 +1,25 @@
 <script setup>
-onMounted(() => {
-  // * Website background circles
-  const circleContainer = document.querySelector(".circle-container");
-  const circleAmount = 1;
-  const colorsArr = [
-    "#5bd228",
-    "#5db139",
-    "#2b760a",
-    "#63bc3d",
-    "#3e642e",
-    "#378914",
-    "#31651b",
-  ];
+import {
+  randomFloatNumber,
+  randomArrItem,
+  randomIntNumber,
+} from "../composables/utilities";
 
-  circleContainer.style.height = "50vh";
+// * Website background circles
+const circleContainer = ref(null);
+const circleAmount = 1;
+const colorsArr = [
+  "#5bd228",
+  "#5db139",
+  "#2b760a",
+  "#63bc3d",
+  "#3e642e",
+  "#378914",
+  "#31651b",
+];
+
+onMounted(() => {
+  circleContainer.value.style.height = "50vh";
 
   const createCircles = () => {
     for (let i = 0; i < circleAmount; i++) {
@@ -26,30 +32,42 @@ onMounted(() => {
       newEl.style.top =
         randomIntNumber(
           10,
-          parseInt(circleContainer.style.height.split("vh")[0]) - 10
+          parseInt(circleContainer.value.style.height.split("vh")[0]) - 10
         ) + "vh";
       newEl.style.left = randomIntNumber(100, window.innerWidth - 100) + "px";
-      circleContainer.appendChild(newEl);
+      circleContainer.value.appendChild(newEl);
     }
   };
 
   createCircles();
 
-  setInterval(() => {
-    const speed = 0.5;
+  circleContainer.value.childNodes.forEach((circle) => {
+    let speed = -4;
+    let size = parseInt(circle.style.width.split("px")[0]);
 
-    circleContainer.childNodes.forEach((circle) => {
-      circle.style.left =
-        parseInt(circle.style.left.split("px")[0]) + speed + "px";
+    // circle.style.top = `${randomNum(0, 100)}%`;
+    // circle.style.left = ;
+    // circle.style.width = size + "px";
+    // circle.style.height = size + "px";
+    // circle.style.backgroundColor = "#" + randomArrItem(circleColors);
 
-      console.log(circle.style.left);
-    });
-  }, 5);
+    setInterval(() => {
+      let circleLeft = parseFloat(circle.style.left.split("px")[0]);
+
+      circle.style.left = circleLeft + speed + "px";
+
+      if (speed > 0 && circleLeft > window.innerWidth - size - 5) {
+        circle.style.left = "-10px";
+      } else if (speed < 0 && circleLeft < -5) {
+        circle.style.left = window.innerWidth + "px";
+      }
+    }, 5);
+  });
 });
 </script>
 
 <template>
-  <div class="circle-container"></div>
+  <div class="circle-container" ref="circleContainer"></div>
 </template>
 
 <style lang="scss">

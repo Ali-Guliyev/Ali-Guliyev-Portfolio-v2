@@ -7,7 +7,7 @@ export const removeLastEl = (string) => {
 };
 
 export const randomIntNumber = (min, max) => {
-  return Math.floor(Math.random() * (max + 1 - min) + min);
+  return Math.floor(Math.random() * (max - min) + min);
 };
 
 export const randomArrItem = (arr) => {
@@ -15,5 +15,5 @@ export const randomArrItem = (arr) => {
 };
 
 export const randomFloatNumber = (min, max) => {
-  return Math.random() * (max + 1 - min) + min;
+  return Math.random() * (max - min) + min;
 };
