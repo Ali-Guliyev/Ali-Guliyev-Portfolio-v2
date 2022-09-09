@@ -7,7 +7,7 @@ import {
 
 // * Website background circles
 const circleContainer = ref(null);
-const circleAmount = 1;
+const circleAmount = 30;
 const colorsArr = [
   "#5bd228",
   "#5db139",
@@ -19,7 +19,17 @@ const colorsArr = [
 ];
 
 onMounted(() => {
-  circleContainer.value.style.height = "50vh";
+  const pageHeight = Math.max(
+    document.body.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.clientHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight
+  );
+  const maxSpeed = 0.5,
+    minSpeed = 0.2;
+
+  circleContainer.value.style.height = pageHeight + "px";
 
   const createCircles = () => {
     for (let i = 0; i < circleAmount; i++) {
@@ -32,8 +42,8 @@ onMounted(() => {
       newEl.style.top =
         randomIntNumber(
           10,
-          parseInt(circleContainer.value.style.height.split("vh")[0]) - 10
-        ) + "vh";
+          parseInt(circleContainer.value.style.height.split("px")[0]) - 10
+        ) + "px";
       newEl.style.left = randomIntNumber(100, window.innerWidth - 100) + "px";
       circleContainer.value.appendChild(newEl);
     }
@@ -42,24 +52,38 @@ onMounted(() => {
   createCircles();
 
   circleContainer.value.childNodes.forEach((circle) => {
-    let speed = -4;
+    let speedX = randomArrItem([
+      randomFloatNumber(minSpeed, maxSpeed),
+      randomFloatNumber(-maxSpeed, -minSpeed),
+    ]);
+    let speedY = randomArrItem([
+      randomFloatNumber(minSpeed, maxSpeed),
+      randomFloatNumber(-maxSpeed, -minSpeed),
+    ]);
+
     let size = parseInt(circle.style.width.split("px")[0]);
 
-    // circle.style.top = `${randomNum(0, 100)}%`;
-    // circle.style.left = ;
-    // circle.style.width = size + "px";
-    // circle.style.height = size + "px";
-    // circle.style.backgroundColor = "#" + randomArrItem(circleColors);
-
     setInterval(() => {
+      // Speed X
       let circleLeft = parseFloat(circle.style.left.split("px")[0]);
 
-      circle.style.left = circleLeft + speed + "px";
+      circle.style.left = circleLeft + speedX + "px";
 
-      if (speed > 0 && circleLeft > window.innerWidth - size - 5) {
+      if (speedX > 0 && circleLeft > window.innerWidth - size - size / 2) {
         circle.style.left = "-10px";
-      } else if (speed < 0 && circleLeft < -5) {
-        circle.style.left = window.innerWidth + "px";
+      } else if (speedX < 0 && circleLeft < -size) {
+        circle.style.left = window.innerWidth - size + "px";
+      }
+
+      // Speed X
+      let circleTop = parseFloat(circle.style.top.split("px")[0]);
+
+      circle.style.top = circleTop + speedY + "px";
+
+      if (speedY > 0 && circleTop > pageHeight - size - 5) {
+        circle.style.top = "-10px";
+      } else if (speedY < 0 && circleTop < -size) {
+        circle.style.top = pageHeight - size + "px";
       }
     }, 5);
   });
@@ -74,25 +98,20 @@ onMounted(() => {
 @import "../assets/scss/mixins";
 @import "../assets/scss/variants";
 
-.greetingContainer {
-  position: fixed;
+.circle-container {
+  opacity: 0.4;
+  width: 100%;
+  height: 400vh;
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 99;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(0, 0, 0);
-  color: $green;
-  text-align: center;
-  animation: fade-out 1s ease 5.5s forwards;
-  @include flex(center, center, column);
-  p {
-    font-size: 30px;
-    margin-top: 5px;
-    .cursor {
-      font-weight: bold;
-      font-size: 35px;
-    }
+  z-index: -1;
+
+  .circle {
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.7;
+    background-color: #31651b;
   }
 }
 </style>

@@ -118,7 +118,7 @@ $circle-background: #084008;
 $circle-color: #0fa00f;
 $inset-size: 105px;
 $inset-color: #051f05;
-$transition-length: 1s;
+$transition-length: 4s;
 
 .skillContainer {
   @include flex(center, space-between);

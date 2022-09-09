@@ -11,7 +11,7 @@ export const randomIntNumber = (min, max) => {
 };
 
 export const randomArrItem = (arr) => {
-  return arr[randomIntNumber(0, arr.length - 1)];
+  return arr[randomIntNumber(0, arr.length)];
 };
 
 export const randomFloatNumber = (min, max) => {

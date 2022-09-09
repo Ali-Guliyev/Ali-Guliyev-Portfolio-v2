@@ -12,6 +12,7 @@ body {
   font-family: "Courier New", Courier, monospace;
   background: linear-gradient(to right, black, rgb(4, 19, 4), rgb(9, 69, 9), rgb(16, 168, 16));
   color: rgb(15, 169, 15);
+  overflow-x: hidden;
 }
 
 section,
@@ -21,6 +22,7 @@ header {
 
 section {
   padding: 30px;
+  padding-top: 70px;
 }
 section .title {
   font-size: 25px;
