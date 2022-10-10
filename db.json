@@ -50,7 +50,7 @@
       "code": "https://github.com/Ali-Guliyev/ClickButtonSweeperGame"
     }
   ],
-  "aboutText": {
+  "about": {
     "text": "My name is Ali Guliyev and I am almost 16 years old. I am from Baku, Azerbaijan and I live in Istanbul, Turkey. I am an experienced webdeveloper 👨‍💻 and currently learning backend development with NestJSand mathemathics. One of my hobbies is to play basketball 🏀 everyday. I love to watch basketball games, especially NBA, and myfavorite team is Golden State Warriors"
   },
   "skills": [
@@ -108,6 +108,38 @@
       "id": 11,
       "name": "BootStrap",
       "percentage": "30"
+    }
+  ],
+  "social": [
+    {
+      "id": 1,
+      "name": "Discord",
+      "href": "https://discord.gg/CBsy7SyY"
+    },
+    {
+      "id": 2,
+      "name": "Github",
+      "href": "https://github.com/Ali-Guliyev"
+    },
+    {
+      "id": 3,
+      "name": "Twitter",
+      "href": "https://twitter.com/AliGuliyev19"
+    },
+    {
+      "id": 4,
+      "name": "Gmail",
+      "href": "mailto:ali.guliyevoo7@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "Instagram",
+      "href": "https://www.instagram.com/guliyevali2007"
+    },
+    {
+      "id": 6,
+      "name": "Facebook",
+      "href": "https://www.facebook.com/ali.guliyev.7399/"
     }
   ]
 }
