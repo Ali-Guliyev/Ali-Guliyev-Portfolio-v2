@@ -114,32 +114,38 @@
     {
       "id": 1,
       "name": "Discord",
-      "href": "https://discord.gg/CBsy7SyY"
+      "href": "https://discord.gg/CBsy7SyY",
+      "image": "https://cdn-icons-png.flaticon.com/512/3670/3670157.png"
     },
     {
       "id": 2,
       "name": "Github",
-      "href": "https://github.com/Ali-Guliyev"
+      "href": "https://github.com/Ali-Guliyev",
+      "image": "https://cdn-icons-png.flaticon.com/512/1051/1051326.png"
     },
     {
       "id": 3,
       "name": "Twitter",
-      "href": "https://twitter.com/AliGuliyev19"
+      "href": "https://twitter.com/AliGuliyev19",
+      "image": "https://cdn-icons-png.flaticon.com/512/1051/1051326.png"
     },
     {
       "id": 4,
-      "name": "Gmail",
-      "href": "mailto:ali.guliyevoo7@gmail.com"
+      "name": "Mail",
+      "href": "mailto:ali.guliyevoo7@gmail.com",
+      "image": "https://cdn-icons-png.flaticon.com/512/5968/5968534.png"
     },
     {
       "id": 5,
       "name": "Instagram",
-      "href": "https://www.instagram.com/guliyevali2007"
+      "href": "https://www.instagram.com/guliyevali2007",
+      "image": "https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
     },
     {
       "id": 6,
       "name": "Facebook",
-      "href": "https://www.facebook.com/ali.guliyev.7399/"
+      "href": "https://www.facebook.com/ali.guliyev.7399/",
+      "image": "https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
     }
   ]
 }
