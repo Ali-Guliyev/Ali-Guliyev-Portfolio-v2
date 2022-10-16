@@ -110,7 +110,9 @@
       "percentage": "30"
     }
   ],
-  "email": "guliyevali2007@gmail.com",
+  "email": {
+    "content": "guliyevali2007@gmail.com"
+  },
   "social": [
     {
       "id": 1,
