@@ -50,64 +50,116 @@
       "code": "https://github.com/Ali-Guliyev/ClickButtonSweeperGame"
     }
   ],
-  "aboutText": {
+  "about": {
     "text": "My name is Ali Guliyev and I am almost 16 years old. I am from Baku, Azerbaijan and I live in Istanbul, Turkey. I am an experienced webdeveloper 👨‍💻 and currently learning backend development with NestJSand mathemathics. One of my hobbies is to play basketball 🏀 everyday. I love to watch basketball games, especially NBA, and myfavorite team is Golden State Warriors"
   },
   "skills": [
     {
       "id": 1,
       "name": "HTML",
-      "percentage": "100"
+      "percentage": "100",
+      "href": "https://www.w3schools.com/html/default.asp"
     },
     {
       "id": 2,
       "name": "CSS",
-      "percentage": "100"
+      "percentage": "100",
+      "href": "https://www.w3schools.com/css/default.asp"
     },
     {
       "id": 3,
-      "name": "Python",
-      "percentage": "100"
+      "name": "JavaScript",
+      "percentage": "100",
+      "href": "https://www.w3schools.com/js/default.asp"
     },
-    {
+     {
       "id": 4,
       "name": "Figma",
-      "percentage": "100"
+      "percentage": "100",
+      "href": "https://www.figma.com/files/recent?fuid=869684471684331965"
     },
     {
       "id": 5,
-      "name": "JavaScript",
-      "percentage": "100"
+      "name": "Python",
+      "percentage": "100",
+      "href": "https://www.python.org"
     },
     {
       "id": 6,
-      "name": "Vue.js",
-      "percentage": "95"
+      "name": "Vue.js/Nuxt.js",
+      "percentage": "95",
+      "href": "https://nuxtjs.org"
     },
     {
       "id": 7,
       "name": "SASS",
-      "percentage": "95"
+      "percentage": "95",
+      "href": "https://sass-lang.com"
     },
     {
       "id": 8,
       "name": "TailwindCss",
-      "percentage": "90"
+      "percentage": "90",
+      "href": "https://tailwindcss.com"
     },
     {
       "id": 9,
       "name": "C#",
-      "percentage": "85"
+      "percentage": "85",
+      "href": "https://learn.microsoft.com/en-us/dotnet/csharp/"
     },
     {
       "id": 10,
       "name": "C++",
-      "percentage": "50"
+      "percentage": "50",
+      "href": "https://www.w3schools.com/cpp/"
     },
     {
       "id": 11,
       "name": "BootStrap",
-      "percentage": "30"
+      "percentage": "30",
+      "href": "https://getbootstrap.com"
+    }
+  ],
+  "email": {
+    "content": "guliyevali2007@gmail.com"
+  },
+  "social": [
+    {
+      "id": 1,
+      "name": "Discord",
+      "href": "https://discord.gg/CBsy7SyY",
+      "image": "https://cdn-icons-png.flaticon.com/512/3670/3670157.png"
+    },
+    {
+      "id": 2,
+      "name": "Github",
+      "href": "https://github.com/Ali-Guliyev",
+      "image": "https://cdn-icons-png.flaticon.com/512/3291/3291667.png"
+    },
+    {
+      "id": 3,
+      "name": "Twitter",
+      "href": "https://twitter.com/AliGuliyev19",
+      "image": "https://cdn-icons-png.flaticon.com/512/3670/3670127.png"
+    },
+    {
+      "id": 4,
+      "name": "Mail",
+      "href": "mailto:guliyevali2007@gmail.com",
+      "image": "https://cdn-icons-png.flaticon.com/512/552/552486.png"
+    },
+    {
+      "id": 5,
+      "name": "Instagram",
+      "href": "https://www.instagram.com/guliyevali2007",
+      "image": "https://cdn-icons-png.flaticon.com/512/3955/3955024.png"
+    },
+    {
+      "id": 6,
+      "name": "Facebook",
+      "href": "https://www.facebook.com/ali.guliyev.7399",
+      "image": "https://cdn-icons-png.flaticon.com/512/1312/1312139.png"
     }
   ]
 }
