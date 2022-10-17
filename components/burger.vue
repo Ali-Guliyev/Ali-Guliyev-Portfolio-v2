@@ -18,7 +18,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #073c07;
+  background-color: $darkerGreen;
   border-radius: 50%;
   transition: all 0.15s ease;
   @include flex(center, center, column);
