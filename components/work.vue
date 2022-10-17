@@ -5,7 +5,6 @@ const projects = ref([]);
 
 applicationService.getProjects().then((res) => {
   projects.value = res.data;
-  console.log(res.data);
 });
 </script>
 
@@ -61,9 +60,9 @@ applicationService.getProjects().then((res) => {
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 22px;
+  gap: 17px;
   max-width: 1400px;
-  margin: 30px auto;
+  margin: 0 auto;
 
   .project {
     background-color: #0c2d0c;
@@ -146,17 +145,33 @@ applicationService.getProjects().then((res) => {
   }
 }
 
+@media screen and (max-width: 1500px) {
+  .projects {
+    max-width: 1200px;
+
+    .project {
+      height: 250px;
+
+      .imageContainer {
+        a {
+          margin-top: -20px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1047px) {
   .projects {
     grid-template-columns: auto auto;
-    gap: 15px;
+    gap: 20px;
   }
 }
 
 @media screen and (max-width: 700px) {
   .projects {
     grid-template-columns: auto;
-    gap: 10px;
+    gap: 15px;
   }
 }
 </style>
