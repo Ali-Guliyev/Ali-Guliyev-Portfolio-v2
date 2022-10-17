@@ -57,57 +57,68 @@
     {
       "id": 1,
       "name": "HTML",
-      "percentage": "100"
+      "percentage": "100",
+      "href": "https://www.w3schools.com/html/default.asp"
     },
     {
       "id": 2,
       "name": "CSS",
-      "percentage": "100"
+      "percentage": "100",
+      "href": "https://www.w3schools.com/css/default.asp"
     },
     {
       "id": 3,
-      "name": "Python",
-      "percentage": "100"
+      "name": "JavaScript",
+      "percentage": "100",
+      "href": "https://www.w3schools.com/js/default.asp"
     },
-    {
+     {
       "id": 4,
       "name": "Figma",
-      "percentage": "100"
+      "percentage": "100",
+      "href": "https://www.figma.com/files/recent?fuid=869684471684331965"
     },
     {
       "id": 5,
-      "name": "JavaScript",
-      "percentage": "100"
+      "name": "Python",
+      "percentage": "100",
+      "href": "https://www.python.org"
     },
     {
       "id": 6,
-      "name": "Vue.js",
-      "percentage": "95"
+      "name": "Vue.js/Nuxt.js",
+      "percentage": "95",
+      "href": "https://nuxtjs.org"
     },
     {
       "id": 7,
       "name": "SASS",
-      "percentage": "95"
+      "percentage": "95",
+      "href": "https://sass-lang.com"
     },
     {
       "id": 8,
       "name": "TailwindCss",
-      "percentage": "90"
+      "percentage": "90",
+      "href": "https://tailwindcss.com"
     },
     {
       "id": 9,
       "name": "C#",
-      "percentage": "85"
+      "percentage": "85",
+      "href": "https://learn.microsoft.com/en-us/dotnet/csharp/"
     },
     {
       "id": 10,
       "name": "C++",
-      "percentage": "50"
+      "percentage": "50",
+      "href": "https://www.w3schools.com/cpp/"
     },
     {
       "id": 11,
       "name": "BootStrap",
-      "percentage": "30"
+      "percentage": "30",
+      "href": "https://getbootstrap.com"
     }
   ],
   "email": {
