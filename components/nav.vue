@@ -34,10 +34,10 @@ onMounted(() => {
     <div class="clickingArea"></div>
 
     <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">About me</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
+      <a class="btn" href="#home">Home</a>
+      <a class="btn" href="#about">About me</a>
+      <a class="btn" href="#work">Work</a>
+      <a class="btn" href="#contact">Contact</a>
     </div>
   </nav>
 </template>
@@ -67,24 +67,12 @@ nav {
     a {
       width: 100%;
       text-decoration: none;
-      color: #15e815;
       position: relative;
       width: 300px;
       font-size: 20px;
-      letter-spacing: 3px;
-      transition: all 0.1s ease;
-      border-radius: 20px;
-      padding: 14px 20px;
-      border: 2px solid #097d09;
       margin-top: 15px;
       opacity: 0;
-
-      &:hover {
-        background-color: #15e815;
-        color: #073c07;
-        font-weight: 700;
-        box-shadow: 0px 0px 20px #0fa00f;
-      }
+      padding: 14px 20px;
     }
   }
 
