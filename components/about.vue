@@ -1,18 +1,18 @@
 <script setup>
 import applicationService from "../services/applicationService";
 
-const aboutText = ref("");
+const about = ref("");
 const skills = ref([]);
 
-applicationService.getAboutText().then((res) => {
-  aboutText.value = res.data.text;
+applicationService.getAbout().then((res) => {
+  about.value = res.data;
 });
 
 applicationService.getSkills().then((res) => {
   skills.value = res.data;
 });
 
-const randomize = () => {
+const revealPercentages = () => {
   document.querySelectorAll(".ko-progress-circle").forEach((el, i) => {
     el.setAttribute("data-progress", skills.value[i].percentage);
   });
@@ -20,8 +20,8 @@ const randomize = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", function () {
-    if (window.pageYOffset > 900) {
-      setTimeout(randomize, 0);
+    if (window.pageYOffset > 600) {
+      setTimeout(revealPercentages, 0);
     }
   });
 });
@@ -35,7 +35,7 @@ onMounted(() => {
       <div class="container">
         <div class="left">
           <h1>Hi there!</h1>
-          <p>{{ aboutText }}</p>
+          <p>{{ about.text }}</p>
         </div>
         <div class="right">
           <img src="../assets/img/aboutme.jpg" alt="" />
@@ -43,7 +43,13 @@ onMounted(() => {
       </div>
 
       <div class="skillContainer">
-        <div class="skill" v-for="skill in skills" :key="skill.id">
+        <a
+          :href="skill.href"
+          target="new"
+          class="skill"
+          v-for="skill in skills"
+          :key="skill.id"
+        >
           <div class="ko-progress-circle" data-progress="0">
             <div class="ko-circle">
               <div class="full ko-progress-circle__slice">
@@ -59,7 +65,7 @@ onMounted(() => {
             <div class="ko-progress-circle__overlay"></div>
           </div>
           <h3 class="language">{{ skill.name }}</h3>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -75,7 +81,6 @@ onMounted(() => {
 
     .container {
       @include flex(space-between);
-      margin-top: 40px;
       max-width: 1200px;
       width: 100%;
       gap: 20px;
@@ -129,6 +134,8 @@ $transition-length: 4s;
 
   .skill {
     text-align: center;
+    color: $circle-color;
+    text-decoration: none;
 
     .ko-progress-circle {
       position: relative;
@@ -136,6 +143,7 @@ $transition-length: 4s;
       width: $circle-size;
       height: $circle-size;
       transition: all 0.1s ease;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.1);
