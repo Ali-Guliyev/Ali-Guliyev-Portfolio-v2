@@ -18,7 +18,13 @@ export default {
   getProjects() {
     return apiClient.get("/projects");
   },
-  getAboutText() {
-    return apiClient.get("/aboutText");
+  getAbout() {
+    return apiClient.get("/about");
+  },
+  getSocial() {
+    return apiClient.get("/social");
+  },
+  getEmail() {
+    return apiClient.get("/email");
   },
 };
