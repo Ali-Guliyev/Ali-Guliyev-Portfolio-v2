@@ -26,8 +26,8 @@ onMounted(() => {
     document.documentElement.scrollHeight,
     document.documentElement.offsetHeight
   );
-  const maxSpeed = 0.5,
-    minSpeed = 0.2;
+  const maxSpeed = 0.2,
+    minSpeed = 0.1;
 
   circleContainer.value.style.height = pageHeight + "px";
 
@@ -63,29 +63,29 @@ onMounted(() => {
 
     let size = parseInt(circle.style.width.split("px")[0]);
 
-    setInterval(() => {
-      // Speed X
-      let circleLeft = parseFloat(circle.style.left.split("px")[0]);
+    // setInterval(() => {
+    //   // Speed X
+    //   let circleLeft = parseFloat(circle.style.left.split("px")[0]);
 
-      circle.style.left = circleLeft + speedX + "px";
+    //   circle.style.left = circleLeft + speedX + "px";
 
-      if (speedX > 0 && circleLeft > window.innerWidth - size - size / 2) {
-        circle.style.left = "-10px";
-      } else if (speedX < 0 && circleLeft < -size) {
-        circle.style.left = window.innerWidth - size + "px";
-      }
+    //   if (speedX > 0 && circleLeft > window.innerWidth - size - size / 2) {
+    //     circle.style.left = "-10px";
+    //   } else if (speedX < 0 && circleLeft < -size) {
+    //     circle.style.left = window.innerWidth - size + "px";
+    //   }
 
-      // Speed X
-      let circleTop = parseFloat(circle.style.top.split("px")[0]);
+    //   // Speed X
+    //   let circleTop = parseFloat(circle.style.top.split("px")[0]);
 
-      circle.style.top = circleTop + speedY + "px";
+    //   circle.style.top = circleTop + speedY + "px";
 
-      if (speedY > 0 && circleTop > pageHeight - size - 5) {
-        circle.style.top = "-10px";
-      } else if (speedY < 0 && circleTop < -size) {
-        circle.style.top = pageHeight - size + "px";
-      }
-    }, 5);
+    //   if (speedY > 0 && circleTop > pageHeight - size - 5) {
+    //     circle.style.top = "-10px";
+    //   } else if (speedY < 0 && circleTop < -size) {
+    //     circle.style.top = pageHeight - size + "px";
+    //   }
+    // }, 5);
   });
 });
 </script>
