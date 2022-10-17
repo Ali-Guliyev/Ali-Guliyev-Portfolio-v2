@@ -4,3 +4,7 @@
   align-items: $align;
   flex-direction: $direction;
 }
+
+@mixin elementShadow() {
+  box-shadow: 0px 0px 20px #0fa00f;
+}
