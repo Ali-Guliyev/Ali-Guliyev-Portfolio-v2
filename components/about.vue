@@ -1,14 +1,14 @@
 <script setup>
-import applicationService from "../services/applicationService";
+import portfolioService from "../services/portfolioService";
 
 const about = ref("");
 const skills = ref([]);
 
-applicationService.getAbout().then((res) => {
+portfolioService.getAbout().then((res) => {
   about.value = res.data;
 });
 
-applicationService.getSkills().then((res) => {
+portfolioService.getSkills().then((res) => {
   skills.value = res.data;
 });
 

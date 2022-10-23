@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import applicationService from "~~/services/applicationService";
+import portfolioService from "~~/services/portfolioService";
 
 const socialLinks = ref([]);
 
-applicationService.getSocial().then((res) => {
+portfolioService.getSocial().then((res) => {
   socialLinks.value = res.data;
 });
 

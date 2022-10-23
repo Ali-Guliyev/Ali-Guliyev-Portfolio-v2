@@ -1,9 +1,9 @@
 <script setup>
-import applicationService from "~~/services/applicationService";
+import portfolioService from "~~/services/portfolioService";
 
 const projects = ref([]);
 
-applicationService.getProjects().then((res) => {
+portfolioService.getProjects().then((res) => {
   projects.value = res.data;
 });
 </script>

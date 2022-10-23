@@ -1,9 +1,9 @@
 <script setup>
-import applicationService from "~~/services/applicationService";
+import portfolioService from "~~/services/portfolioService";
 
 const email = ref("");
 
-applicationService.getEmail().then((res) => {
+portfolioService.getEmail().then((res) => {
   email.value = res.data.content;
 });
 </script>
