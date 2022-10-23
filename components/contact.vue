@@ -18,7 +18,7 @@ applicationService.getEmail().then((res) => {
           action="https://formsubmit.co/b64ec0804abbaa9e029c3fce27d8103d"
           method="POST"
         >
-          <input name="Name" type="text" placeholder="Full Name" required />
+          <input name="Name" type="text" placeholder="Full Name" />
           <input name="Email" type="email" placeholder="Email" required />
           <textarea name="Message" placeholder="Your message..." required />
           <button class="btn" type="submit">Submit</button>
