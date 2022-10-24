@@ -1,10 +1,23 @@
 <script setup>
 import portfolioService from "~~/services/portfolioService";
+import githubService from "../services/githubService";
 
 const projects = ref([]);
 
 portfolioService.getProjects().then((res) => {
   projects.value = res.data;
+});
+
+onUpdated(() => {
+  projects.value.forEach((project, i) => {
+    let originalProjectName = project.code.split("/")[4];
+
+    // Add an object key about projects' visibility status
+    githubService.getRepoByName(originalProjectName).then((res) => {
+      projects.value[i].public = !res.data.private;
+      console.log(projects.value);
+    });
+  });
 });
 </script>
 
@@ -17,7 +30,7 @@ portfolioService.getProjects().then((res) => {
         <div class="top-part">
           <h1>{{ project.name }}</h1>
 
-          <a :href="project.code" target="_blank">
+          <a v-if="project.public" :href="project.code" target="_blank">
             <svg
               class="github"
               xmlns="http://www.w3.org/2000/svg"
@@ -28,13 +41,14 @@ portfolioService.getProjects().then((res) => {
               />
             </svg>
           </a>
+
+          {{ projects.originalName }}
         </div>
 
         <div
           class="imageContainer"
           :style="{ backgroundImage: `url(${project.photoURL})` }"
         >
-          <!-- <img class="projectWebsite" :src="project.photoURL" alt="" /> -->
           <a :href="project.website" target="_blank">
             <span>View the site</span>
             <svg
