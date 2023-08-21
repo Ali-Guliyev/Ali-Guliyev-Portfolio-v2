@@ -1,34 +1,16 @@
 <script setup>
-import portfolioService from '~~/services/portfolioService'
-import githubService from '../services/githubService'
+import portfolioService from '~~/services/portfolioService';
 
-const projects = ref([])
+const projects = ref([]);
 
 portfolioService
   .getProjects()
   .then((res) => {
-    projects.value = res.data
+    projects.value = res.data;
   })
   .catch((err) => {
-    console.log('the portfolio error:', err.message)
-  })
-
-onUpdated(() => {
-  projects.value.forEach((project, i) => {
-    let originalProjectName = project.code.split('/')[4]
-
-    // Add an object key about projects' visibility status
-    // githubService
-    //   .getRepoByName(originalProjectName)
-    //   .then((res) => {
-    //     console.log(res.data)
-    //     projects.value[i].public = !res.data.private
-    //   })
-    //   .catch((err) => {
-    //     console.log('the githubService error:', err.message)
-    //   })
-  })
-})
+    console.log('the portfolio error:', err.message);
+  });
 </script>
 
 <template>
@@ -40,7 +22,7 @@ onUpdated(() => {
         <div class="top-part">
           <h1>{{ project.name }}</h1>
 
-          <a :href="project.code" target="_blank">
+          <a v-if="!project.isPrivate" :href="project.code" target="_blank">
             <svg
               class="github"
               xmlns="http://www.w3.org/2000/svg"
