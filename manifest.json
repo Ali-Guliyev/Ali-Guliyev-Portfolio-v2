@@ -1,11 +1,11 @@
 {
-  "assets/img/aboutme.jpg": {
-    "file": "_nuxt/aboutme.860d5068.jpg",
-    "src": "assets/img/aboutme.jpg"
-  },
   "assets/img/email.png": {
     "file": "_nuxt/email.2d81fdd6.png",
     "src": "assets/img/email.png"
+  },
+  "assets/img/aboutme.jpg": {
+    "file": "_nuxt/aboutme.860d5068.jpg",
+    "src": "assets/img/aboutme.jpg"
   },
   "node_modules/nuxt/dist/app/entry.mjs": {
     "file": "_nuxt/entry.e4b5b315.mjs",
